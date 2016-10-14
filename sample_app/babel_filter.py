@@ -4,13 +4,13 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
+from compressor.filters import CompilerFilter
 from django.conf import settings
 from django.template import Template, Context
 import django.template.base
-from compressor.filters import CompilerFilter
 
 BABEL_BUILDER = ("browserify %s {infile} -o {outfile} "
-                 "-x=react -x=jquery -x=react-dom -x=backbone -x=flux "
+                 "-x=react -x=jquery -x=react-dom -x=backbone -x=flux -x=underscore "
                  "-t [ babelify --presets [react es2015 ] "
                  "--plugins [ transform-class-properties transform-decorators ] ]")
 
@@ -29,5 +29,5 @@ class BabelFilter(CompilerFilter):
         template = Template(content)
         context = Context(settings.COMPRESS_TEMPLATE_FILTER_CONTEXT)
         rendered = template.render(context)
-        django.template.base.builtins = builtins
+        django.template.base.builtins = builtins  # restore the builtin tags
         return rendered

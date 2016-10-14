@@ -1,0 +1,85 @@
+exports[`AuthorList author item changes when expanded 1`] = `
+<div>
+  <ul
+    className="authors collection">
+    <AuthorItem
+      author={
+        Object {
+          "description": "one",
+          "first_name": "Amy",
+          "id": 1,
+          "last_name": "Barnes",
+        }
+      }
+      expanded={false} />
+    <AuthorItem
+      author={
+        Object {
+          "description": "two",
+          "first_name": "Betty",
+          "id": 2,
+          "last_name": "Cates",
+        }
+      }
+      expanded={false} />
+    <AuthorItem
+      author={
+        Object {
+          "description": "three",
+          "first_name": "Cathy",
+          "id": 3,
+          "last_name": "Dean",
+        }
+      }
+      expanded={false} />
+  </ul>
+  <a
+    className="waves-effect btn"
+    onClick={[Function]}>
+    Refresh
+  </a>
+</div>
+`;
+
+exports[`AuthorList author item changes when expanded 2`] = `
+<div>
+  <ul
+    className="authors collection">
+    <AuthorItem
+      author={
+        Object {
+          "description": "one",
+          "first_name": "Amy",
+          "id": 1,
+          "last_name": "Barnes",
+        }
+      }
+      expanded={false} />
+    <AuthorItem
+      author={
+        Object {
+          "description": "two",
+          "first_name": "Betty",
+          "id": 2,
+          "last_name": "Cates",
+        }
+      }
+      expanded={true} />
+    <AuthorItem
+      author={
+        Object {
+          "description": "three",
+          "first_name": "Cathy",
+          "id": 3,
+          "last_name": "Dean",
+        }
+      }
+      expanded={false} />
+  </ul>
+  <a
+    className="waves-effect btn"
+    onClick={[Function]}>
+    Refresh
+  </a>
+</div>
+`;

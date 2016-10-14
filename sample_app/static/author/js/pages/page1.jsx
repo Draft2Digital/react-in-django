@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AuthorStore} from '../models.js';
-import {AuthorList} from "../components.jsx";
+import AuthorList from "../components/author-list.jsx";
 import AddNewAuthor from "../components/add-new-author.jsx";
 import AuthorDispatcher from '../dispatcher.js';
 

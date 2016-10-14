@@ -11,7 +11,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+{% if debug %}
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+{% else %}
     <script src="https://unpkg.com/react@15.3.2/dist/react.min.js"></script>
+{% endif %}
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flux/2.1.1/Flux.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>

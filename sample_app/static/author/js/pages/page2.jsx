@@ -1,6 +1,6 @@
 import * as shared from "../shared.jsx";
 import {AuthorStore} from '../models.js';
-import {AddNewAuthor, AuthorList} from "../components.jsx";
+import {AddNewAuthor, AuthorList} from "../components/author-list.jsx";
 
 console.log("page2 loading...");
 

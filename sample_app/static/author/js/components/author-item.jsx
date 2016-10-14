@@ -1,41 +1,9 @@
 import React from 'react';
-import {BaseReactComponent} from './shared.jsx';
-import {AuthorModel} from './models.js';
-import AuthorDispatcher from './dispatcher.js';
+import {BaseReactComponent} from '../shared.jsx';
+import AuthorDispatcher from '../dispatcher.js';
 
 //**********************************************************************
-export class AuthorList extends BaseReactComponent {
-    //******************************************************************
-    getBackboneCollections() {
-        return [this.props.authors];
-    }
-    refresh() {
-        AuthorDispatcher.dispatch({actionType: "refresh-authors"});
-    }
-
-    //******************************************************************
-    render() {
-        return (
-            <div>
-                <ul className="authors collection">
-                    {this.props.authors.map((author, index) => {
-                        return (
-                            <AuthorItem
-                                author={author}
-                                key={index}
-                                expanded={author === this.props.authors.expanded}
-                            />
-                        );
-                    })}
-                </ul>
-                <a className="waves-effect btn" onClick={this.refresh}>Refresh</a>
-            </div>
-        );
-    }
-}
-
-//**********************************************************************
-class AuthorItem extends React.Component {
+export default class AuthorItem extends BaseReactComponent {
     //******************************************************************
     static getStyles() {
         return {

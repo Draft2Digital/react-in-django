@@ -13,13 +13,6 @@
 <h1>Page 1</h1>
 <div id="add-new-author">Loading...</div>
 <div id="authors">Loading...</div>
-<script id="config" type="text/json">
-{
-    "apiRoot": "{% url 'api-root' %}",
-    "apiLogin": "{% url 'api-token' %}",
-    "authorsUrl": "{% url 'authors' %}"
-}
-</script>
 {% compress js %}
     <script type="text/babel" src="{% static "author/js/pages/page1.jsx" %}"></script>
 {% endcompress %}

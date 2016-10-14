@@ -1,0 +1,35 @@
+{% load compress %}
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sample Project - Page 2</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="{% static "third_party/jquery-3.1.1.min.js" %}"></script>
+    <script src="{% static "third_party/materialize/js/materialize.min.js" %}"></script>
+    <script src="{% static "third_party/react/react.js" %}"></script>
+    <script src="{% static "third_party/react/react-dom.js" %}"></script>
+    <script src="{% static "third_party/underscore-min.js" %}"></script>
+    <script src="{% static "third_party/backbone-min.js" %}"></script>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static "third_party/materialize/css/materialize.min.css" %}"  media="screen,projection"/>
+
+{% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static "author/scss/page2.scss" %}" />
+{% endcompress %}
+</head>
+<body>
+<h1>Page 2</h1>
+<div id="content1">Loading...</div>
+<div id="content2">Loading...</div>
+<div id="add-new-author">Loading...</div>
+<div id="authors">Loading...</div>
+{% compress js %}
+    <script type="text/babel" src="{% static "author/js/pages/page2.jsx" %}"></script>
+{% endcompress %}
+</body>
+</html>

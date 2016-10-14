@@ -1,0 +1,38 @@
+{
+  "name": "react-in-django",
+  "version": "1.0.0",
+  "description": "example project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "postinstall": "npm install -g browserify node-sass postcss-cli jest && browserify -o sample_app/static/third_party/vendor.js -r react -r react-dom -r jquery -r backbone -r flux"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^6.5.0",
+    "babel-plugin-transform-class-properties": "^6.16.0",
+    "babel-plugin-transform-decorators": "^6.13.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "backbone": "^1.3.3",
+    "browserify": "^13.1.0",
+    "flux": "^3.0.0",
+    "jquery": "^3.1.1",
+    "node-sass": "^3.10.1",
+    "postcss-cli": "^2.6.0",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-jest": "*",
+    "babel-polyfill": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "enzyme": "^2.4.1",
+    "jest-cli": "*",
+    "react": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2",
+    "react-test-renderer": "^15.3.2"
+  }
+}

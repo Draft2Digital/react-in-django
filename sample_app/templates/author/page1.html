@@ -1,0 +1,38 @@
+{% load compress %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sample Project - Page 1</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static "third_party/materialize/css/materialize.min.css" %}"  media="screen,projection"/>
+
+{#    <script src="{% static "third_party/jquery-3.1.1.min.js" %}"></script>#}
+    <script src="{% static "third_party/vendor.js" %}"></script>
+    <script src="{% static "third_party/materialize/js/materialize.min.js" %}"></script>
+
+{% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static "author/scss/page1.scss" %}" />
+{% endcompress %}
+</head>
+<body>
+<h1>Page 1</h1>
+<div id="add-new-author">Loading...</div>
+<div id="authors">Loading...</div>
+<script id="config" type="text/json">
+{
+    "apiRoot": "{% url 'api-root' %}",
+    "apiLogin": "{% url 'api-token' %}",
+    "authorsUrl": "{% url 'authors' %}"
+}
+</script>
+{% compress js %}
+    <script type="text/babel" src="{% static "author/js/pages/page1.jsx" %}"></script>
+{% endcompress %}
+</body>
+</html>

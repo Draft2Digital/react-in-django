@@ -29,6 +29,8 @@ export default class AuthorList extends BaseReactComponent {
                     })}
                 </ul>
                 <a className="waves-effect btn" onClick={this.refresh}>Refresh</a>
+                <br/>
+                <img src='{% static "images/person-icon.png" %}'/>
             </div>
         );
     }

@@ -58,8 +58,6 @@ export default class AddNewAuthor extends BaseReactComponent {
         else {
             return (
                 <div>
-                    <img src='{% static "images/person-icon.png" %}'/>
-                    <br/>
                     <a className="waves-effect btn" onClick={this.displayForm}>Add New Author</a>
                 </div>
             );

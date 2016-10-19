@@ -4,8 +4,8 @@
   "description": "example project",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "postinstall": "npm install -g browserify node-sass postcss-cli jest && browserify -o sample_app/static/third_party/vendor.js -r react -r react-dom -r jquery -r backbone -r flux"
+    "test": "mocha --opts jstests/mocha.opts",
+    "postinstall": "npm install -g browserify node-sass postcss-cli jest"
   },
   "author": "",
   "license": "ISC",
@@ -30,12 +30,15 @@
     "babel-polyfill": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
+    "chai": "^3.5.0",
     "enzyme": "^2.4.1",
     "enzyme-to-json": "^1.1.4",
     "jest-cli": "*",
+    "jsdom": "^9.8.0",
+    "mocha": "^3.1.2",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
-    "react-test-renderer": "^15.3.2"
+    "sinon": "^1.17.6"
   },
   "browserify": {
     "transform": [

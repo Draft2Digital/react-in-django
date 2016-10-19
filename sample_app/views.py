@@ -29,12 +29,12 @@ def api_root(request):
         "authors": "/sample-app/authors"
     }
     """
-    return HttpResponse(content, content_type="text/json")
+    return HttpResponse(content, content_type="application/json")
 
 
 ########################################################################
 def api_token(request):
-    return HttpResponse("notimplemented", content_type="text/json")
+    return HttpResponse("notimplemented", content_type="application/json")
 
 
 ########################################################################
@@ -44,7 +44,7 @@ def authors(request):
         content = json.dumps(list(models.Author.objects.all().values()))
         print("content:")
         print(content)
-        return HttpResponse(content, content_type="text/json")
+        return HttpResponse(content, content_type="application/json")
     elif request.method == "POST":
         print("incoming content")
         print(request.body)
@@ -54,7 +54,7 @@ def authors(request):
                                                   description=data["description"])
         # Return the new id
         content = json.dumps({"id": new_author.id})
-        return HttpResponse(content, content_type="text/json")
+        return HttpResponse(content, content_type="application/json")
     else:
         print("A DIFFERENT request:", request.method)
         print("A DIFFERENT request:", request.body)
@@ -69,7 +69,7 @@ def author(request, author_id):
             content = json.dumps(an_author)
             print("content:")
             print(content)
-            return HttpResponse(content, content_type="text/json")
+            return HttpResponse(content, content_type="application/json")
         else:
             return HttpResponse("not found", content_type="text/plain", status=404)
     elif request.method == "POST":

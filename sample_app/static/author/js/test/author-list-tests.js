@@ -1,40 +1,41 @@
 "use strict";
 
 import React from 'react';
-import {mount, shallow} from 'enzyme';
-import {shallowToJson} from 'enzyme-to-json';
-
+import {shallow} from 'enzyme';
 import {expect} from 'chai';
+import sinon from 'sinon';
 
 import AuthorList from "../components/author-list.jsx";
 import {AuthorStore} from '../models.js';
 import AuthorItem from "../components/author-item";
+import AuthorDispatcher from '../dispatcher.js';
 
 //**********************************************************************
-beforeEach(() => {
-  let fixture = [
+describe('AuthorList', () => {
+  var component = (<AuthorList authors={AuthorStore}/>);
+  var dispatcherSpy;
+  var fixture = [
     {id: 1, first_name: "Amy", last_name: "Barnes", description: "one"},
     {id: 2, first_name: "Betty", last_name: "Cates", description: "two"},
     {id: 3, first_name: "Cathy", last_name: "Dean", description: "three"},
   ];
-  AuthorStore.reset(fixture);
-  expect(AuthorStore.expanded).to.equal(null);
-});
 
-//**********************************************************************
-function getComponent() {
-  return (
-    <AuthorList authors={AuthorStore}/>
-  );
-}
+  //********************************************************************
+  beforeEach(function() {
+    AuthorStore.reset(fixture);
+    AuthorStore.expanded = null;
+    expect(AuthorStore.expanded).to.equal(null);
+    dispatcherSpy = sinon.spy(AuthorDispatcher, 'dispatch');
+  });
 
-//**********************************************************************
-describe('AuthorList', () => {
-  //******************************************************************
-  it('wraps the AuthorItems', () => {
-    let component = getComponent();
+  //********************************************************************
+  afterEach(function() {
+    dispatcherSpy.restore();
+  });
+
+  //********************************************************************
+  it('wraps the AuthorItems', function() {
     let wrapper = shallow(component);
-    expect(wrapper).to.exist;
     expect(wrapper.type()).to.equal('div');
     let ul = wrapper.childAt(0);
     expect(ul.type()).to.equal('ul');
@@ -43,10 +44,13 @@ describe('AuthorList', () => {
     expect(ul.children().length).to.equal(3);  // 3 AuthorItems included
     let x = ul.childAt(0);
     expect(x.type()).to.equal(AuthorItem);
+  });
 
-    /*
-    let tree = shallowToJson(wrapper);
-    expect(tree).toMatchSnapshot();
-    */
+  //********************************************************************
+  it('can refresh', function() {
+    let wrapper = shallow(component);
+    wrapper.find('.refresh-button').simulate('click');
+    expect(dispatcherSpy.called).to.equal(true);
+    expect(dispatcherSpy.getCall(0).args[0].actionType).to.equal('refresh-authors');
   });
 });

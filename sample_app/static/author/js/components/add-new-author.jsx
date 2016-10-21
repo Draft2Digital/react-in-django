@@ -48,10 +48,10 @@ export default class AddNewAuthor extends BaseReactComponent {
             let styles = AddNewAuthor.getStyles();
             return (
                 <div>
-                    <input onChange={this.linkState('author', 'first_name')} value={this.state.author.get('first_name')} placeholder="First Name" style={styles.firstName} type="text" />
-                    <input onChange={this.linkState('author', 'last_name')} value={this.state.author.get('last_name')} placeholder="Last Name" style={styles.lastName} type="text" />
-                    <input onChange={this.linkState('author', 'description')} value={this.state.author.get('description')} placeholder="Description Name" style={styles.description} type="text" />
-                    <button style={styles.submitButton} type="button" onClick={this.handleNewAuthor}>Create</button>
+                    <input onChange={this.linkState('author', 'first_name')} value={this.state.author.get('first_name')} placeholder="First Name" className="first-name" style={styles.firstName} type="text" />
+                    <input onChange={this.linkState('author', 'last_name')} value={this.state.author.get('last_name')} placeholder="Last Name" className="last-name" style={styles.lastName} type="text" />
+                    <input onChange={this.linkState('author', 'description')} value={this.state.author.get('description')} placeholder="Description Name" className="description" style={styles.description} type="text" />
+                    <button className='submit-button' style={styles.submitButton} type="button" onClick={this.handleNewAuthor}>Create</button>
                 </div>
             );
         }

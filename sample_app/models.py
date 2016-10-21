@@ -21,7 +21,13 @@ class Author(models.Model):
 
 ########################################################################
 class Book(models.Model):
+    BookStatus = (
+        ('DRAFT', 'Draft'),
+        ('REQUESTED', 'Requested Listing'),
+        ('PUBLISHED', 'Published'),
+        ('DELISTED', 'Delisted'),
+    )
     title = models.TextField()
     author = models.ForeignKey(Author)
-    copyright = models.DateField()
-    description = models.TextField()
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+    status = models.CharField(max_length=30, choices=BookStatus)
